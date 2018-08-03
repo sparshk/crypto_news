@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	<h3> {{ notfound }}</h3>
+	{% if search.Response %}
+		<h3> Sorry, no symbol like that exists. Please try again! </h3>
+	{% endif %}
+	{% for key,value in search.DISPLAY.items %}
+		<div class="jumbotron">
+  			<h1 class="display-4">{{ key }}</h1>
+  			<p class="lead">Price : {{value.USD.PRICE}}</p>
+  			<p class="lead">Opening : {{value.USD.OPENDAY}}</p>
+  			<p class="lead">Day High : {{value.USD.HIGHDAY}}</p>
+  			<p class="lead">Day Low : {{value.USD.LOWDAY}}</p>
+  			<p class="lead">% Change : {{value.USD.CHANGEPCTDAY}}</p>
+  			<p class="lead">Supply : {{value.USD.SUPPLY}}</p>
+  			<p class="lead">Market Cap : {{value.USD.MKTCAP}}</p>
+  
+		</div>
+	<br><br/>
+	{% endfor %}
+{% endblock %}
+
+
